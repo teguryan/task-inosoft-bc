@@ -18,3 +18,6 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/perulangan','App\Http\Controllers\PdasController@perulangan');
+Route::get('/percabangan','App\Http\Controllers\PdasController@percabangan');
+// Route::get('/luasling','App\Http\Controllers\PdasController@luaslingkaran');
+Route::get('/1','App\Http\Controllers\PdasController@testing1');
