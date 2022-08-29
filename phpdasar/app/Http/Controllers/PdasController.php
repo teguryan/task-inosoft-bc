@@ -6,28 +6,33 @@ use Illuminate\Http\Request;
 
 class PdasController extends Controller
 {
-    public function perulangan(){
-        for($i=1;$i<=100;$i++){
-           echo $i.".00"."<br>";
-           }
-    }
-
-    public function percabangan(){ 
+    public function final(){
         for ($i= 1; $i <= 100; $i++) { 
-            if ( $bagi = $i % 3 == 0 ) {
-                echo $luas = $this->luaslingkaran(3.14,$i).'<br>';
+            if($i%3 == 0 && $i%5 == 0){
+                echo number_format($luasp = $this -> luaspp($i/3,$i/5),2,".","")."<br>";
+            }else if($i%5 == 0){     
+                  echo number_format( $keliling = $this ->kelilinglingkaran(3.14,$i/5),2,".","")."<br>";
+            }else if($i%3 == 0){
+                  echo number_format($luas = $this->luaslingkaran(3.14,$i/3),2,".","").'<br>';
+            }else{
+              echo number_format($i,2,".","")."<br>";
             }
         }
     }
 
-    public function luaslingkaran(int $pi, int $jari2){
+    public function luaslingkaran($pi, $jari2){
         $luasl = $pi * $jari2 * $jari2;
         return $luasl;
     }
 
-    public function testing1(){
-        echo $this->luaslingkaran(3.14,3).'<br>';
-        echo $this->luaslingkaran(3.14,6).'<br>';
-        echo $this->luaslingkaran(3.14,9);
+    public function kelilinglingkaran($pi, $jari2){
+        $kelilingl = 2 * $pi * $jari2;
+        return $kelilingl;
     }
+
+    public function luaspp($p,$l){
+        $luaspp = $p * $l;
+        return $luaspp;
+    }
+
 }
